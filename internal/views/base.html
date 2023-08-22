@@ -1,0 +1,20 @@
+{{ define "base.html" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ template "title" . }}</title>
+
+    {{ if .music.Meta.Description }}
+    <meta name="description" content="{{ .music.Meta.Description }}" />
+    {{ end }}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="htmx1.9.4.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    {{ template "navbar" . }} {{ template "body" . }}
+  </body>
+</html>
+{{ end }}

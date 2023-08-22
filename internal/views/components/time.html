@@ -1,0 +1,3 @@
+{{ define "time" }}
+<div hx-get="/time" hx-trigger="every 2s" hx-swap="outerHTML">{{ .ts }}</div>
+{{ end }}
