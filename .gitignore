@@ -6,4 +6,3 @@ bin/
 
 .env
 assets/static/styles.css
-assets/static/htmx*.js
