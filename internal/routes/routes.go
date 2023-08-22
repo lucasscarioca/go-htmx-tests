@@ -21,18 +21,19 @@ func MountRoutes(e *echo.Echo) {
 		templates: registerTemplates(),
 	}
 
-	root := e.Group("/", middlewares.CacheControl(0))
-
-	root.GET("ping", func(c echo.Context) error {
+	e.GET("ping", func(c echo.Context) error {
 		return c.String(http.StatusOK, "pong")
 	})
 
-	// Templates
-	root.GET("", controllers.Home)
-
-	// Components
-
-	root.GET("404", func(c echo.Context) error {
+	// Pages Routes
+	pages := e.Group("/", middlewares.CacheControl(0))
+	pages.GET("", controllers.Home)
+	pages.GET("404", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "404.html", map[string]any{})
 	})
+
+	// Components Routes
+	components := e.Group("/components", middlewares.CacheControl(0))
+	components.GET("/time", controllers.Time)
+
 }

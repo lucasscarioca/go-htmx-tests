@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/labstack/echo/v4"
 )
@@ -20,4 +21,9 @@ func Home(c echo.Context) error {
 		},
 	}
 	return c.Render(http.StatusOK, "home.html", todos)
+}
+
+func Time(c echo.Context) error {
+	ctx := map[string]any{"ts": time.Now().Format(time.Kitchen)}
+	return c.Render(http.StatusOK, "time.html", ctx)
 }

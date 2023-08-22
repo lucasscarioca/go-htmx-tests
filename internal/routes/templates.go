@@ -17,7 +17,12 @@ var templatesMap = map[string][]string{
 	},
 	"404.html": {
 		"internal/views/base.html",
+		"internal/views/components/navbar.html",
 		"internal/views/pages/404.html",
+	},
+	// Components
+	"time.html": {
+		"internal/views/components/time.html",
 	},
 }
 
