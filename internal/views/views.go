@@ -1,4 +1,4 @@
-package routes
+package views
 
 import (
 	"errors"
@@ -26,22 +26,18 @@ var templatesMap = map[string][]string{
 	},
 }
 
-func registerTemplates() map[string]*template.Template {
-	templates := make(map[string]*template.Template)
-
-	for key, value := range templatesMap {
-		templates[key] = newTemplate(value...)
-	}
-
-	return templates
-}
-
-type templateRegistry struct {
+type TemplateRegistry struct {
 	templates map[string]*template.Template
 }
 
+func WithTemplateRegistry() *TemplateRegistry {
+	return &TemplateRegistry{
+		templates: registerTemplates(),
+	}
+}
+
 // Implement e.Renderer interface
-func (t *templateRegistry) Render(w io.Writer, name string, data any, c echo.Context) error {
+func (t *TemplateRegistry) Render(w io.Writer, name string, data any, c echo.Context) error {
 	template, ok := t.templates[name]
 	if !ok {
 		err := errors.New("Template not found: " + name)
@@ -52,6 +48,16 @@ func (t *templateRegistry) Render(w io.Writer, name string, data any, c echo.Con
 		return template.ExecuteTemplate(w, name, data)
 	}
 	return template.ExecuteTemplate(w, "base.html", data)
+}
+
+func registerTemplates() map[string]*template.Template {
+	templates := make(map[string]*template.Template)
+
+	for key, value := range templatesMap {
+		templates[key] = newTemplate(value...)
+	}
+
+	return templates
 }
 
 func newTemplate(files ...string) *template.Template {

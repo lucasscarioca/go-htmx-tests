@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/lucasscarioca/music-stash/internal/controllers"
 	"github.com/lucasscarioca/music-stash/internal/routes/middlewares"
+	"github.com/lucasscarioca/music-stash/internal/views"
 )
 
 func MountRoutes(e *echo.Echo) {
@@ -17,9 +18,7 @@ func MountRoutes(e *echo.Echo) {
 	}))
 
 	// Setup Templates
-	e.Renderer = &templateRegistry{
-		templates: registerTemplates(),
-	}
+	e.Renderer = views.WithTemplateRegistry()
 
 	e.GET("ping", func(c echo.Context) error {
 		return c.String(http.StatusOK, "pong")
