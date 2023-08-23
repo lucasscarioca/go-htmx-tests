@@ -28,11 +28,10 @@ func MountRoutes(e *echo.Echo) {
 	pages := e.Group("/", middlewares.CacheControl(0))
 	pages.GET("", controllers.Home)
 	pages.GET("404", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "404.html", map[string]any{})
+		return c.Render(http.StatusOK, "pageNotFound", map[string]any{})
 	})
 
-	// Components Routes
-	components := e.Group("/components", middlewares.CacheControl(0))
-	components.GET("/time", controllers.Time)
-
+	// Htmx Fragments Routes
+	hx := e.Group("/hx", middlewares.CacheControl(0), middlewares.ValidateHxRequest)
+	hx.GET("/time", controllers.Time)
 }

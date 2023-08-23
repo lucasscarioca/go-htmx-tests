@@ -5,4 +5,4 @@ vendor/
 bin/
 
 .env
-assets/static/styles.css
+assets/static/css/styles.css

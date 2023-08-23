@@ -9,19 +9,20 @@ import (
 )
 
 var templatesMap = map[string][]string{
-	"home.html": {
+	// Pages
+	"home": {
 		"internal/views/base.html",
 		"internal/views/components/navbar.html",
 		"internal/views/pages/home.html",
 		"internal/views/components/time.html",
 	},
-	"404.html": {
+	"pageNotFound": {
 		"internal/views/base.html",
 		"internal/views/components/navbar.html",
 		"internal/views/pages/404.html",
 	},
-	// Components
-	"time.html": {
+	// HTMX Fragments
+	"time": {
 		"internal/views/components/time.html",
 	},
 }
