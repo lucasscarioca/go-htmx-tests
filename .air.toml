@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 [build]
 args_bin = []
 bin = "tmp\\main.exe"
-cmd = "go test -v ./... && tailwindcss -i ./assets/tailwind.css -o ./assets/static/styles.css && go build -o ./tmp/main.exe ./cmd/server/..."
+cmd = "go test -v ./... && tailwindcss -i ./assets/tailwind.css -o ./assets/static/css/styles.css && go build -o ./tmp/main.exe ./cmd/server/..."
 delay = 1000
 exclude_dir = ["tmp", "vendor", "testdata"]
 exclude_file = []

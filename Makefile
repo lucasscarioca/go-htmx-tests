@@ -2,7 +2,7 @@ include .env
 export
 
 assets:
-	@tailwindcss -i ./assets/tailwind.css -o ./assets/static/styles.css
+	@tailwindcss -i ./assets/tailwind.css -o ./assets/static/css/styles.css
 
 build: assets
 	@go build ./cmd/server/... -o tmp/main
