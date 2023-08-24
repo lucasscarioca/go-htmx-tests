@@ -1,1 +1,61 @@
-{{ define "navbar" }} {{ end }}
+{{ define "navbar" }}
+<nav
+  class="flex w-full p-4 md:items-center justify-between bg-secondary dark:bg-secondary-dark shadow-md"
+>
+  <span class="font-bold text-accent hover:text-accent-bold duration-500"
+    >Music Stash</span
+  >
+  <input
+    class="rounded bg-primary dark:bg-primary-dark text-accent dark:text-accent-light"
+    name="searchbar"
+    placeholder="Search a song..."
+  />
+  <ul
+    class="space-x-2 space-y-4 md:space-y-0 md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-secondary dark:bg-secondary-dark w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in-out duration-500"
+  >
+    <li class="ml-2">
+      <a
+        href="#"
+        class="text-lg text-accent hover:text-accent-bold duration-500"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        href="#"
+        class="text-lg text-accent hover:text-accent-bold duration-500"
+        >My list</a
+      >
+    </li>
+    <li>
+      <a
+        href="#"
+        class="text-lg text-accent hover:text-accent-bold duration-500"
+        >Profile</a
+      >
+    </li>
+    <li class="flex justify-end space-x-2 px-4">
+      <button type="button" class="btn" onclick="toggleTheme()">Theme</button>
+      <button type="button" class="btn">Login</button>
+    </li>
+  </ul>
+  <div class="md:hidden cursor-pointer">
+    <button type="button" name="menu" onclick="menu(this)">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 text-accent"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </div>
+</nav>
+{{ end }}

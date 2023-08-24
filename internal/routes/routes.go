@@ -46,6 +46,7 @@ func pingHandler(c echo.Context) error {
 	return c.String(http.StatusOK, "pong")
 }
 
+// TODO: Test Redirect and handler
 func pageNotFoundHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "pageNotFound", map[string]any{})
 }

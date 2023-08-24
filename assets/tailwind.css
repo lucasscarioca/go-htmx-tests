@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Inter";
+    font-weight: 100;
+    src: url("/fonts/Inter-Thin.ttf");
+    src: local("Inter-Thin"), local("Inter-Thin.ttf"),
+      url("/fonts/Inter-Thin.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-weight: 200;
+    src: url("/fonts/Inter-ExtraLight.ttf");
+    src: local("Inter-ExtraLight"), local("Inter-ExtraLight.ttf"),
+      url("/fonts/Inter-ExtraLight.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-weight: 400;
+    src: url("/fonts/Inter-Regular.ttf");
+    src: local("Inter-Regular"), local("Inter-Regular.ttf"),
+      url("/fonts/Inter-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-weight: 600;
+    src: url("/fonts/Inter-SemiBold.ttf");
+    src: local("Inter-SemiBold"), local("Inter-SemiBold.ttf"),
+      url("/fonts/Inter-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-weight: 700;
+    src: url("/fonts/Inter-Bold.ttf");
+    src: local("Inter-Bold"), local("Inter-Bold.ttf"),
+      url("/fonts/Inter-Bold.ttf") format("truetype");
+  }
+}
+
+@layer components {
+  .btn {
+    @apply bg-accent hover:bg-accent-bold text-primary font-semibold py-2 px-4 rounded;
+  }
+  .cancel-btn {
+    @apply bg-cancel hover:bg-cancel-bold text-primary font-semibold py-2 px-4 rounded;
+  }
+}
