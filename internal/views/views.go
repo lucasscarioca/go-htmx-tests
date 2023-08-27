@@ -14,7 +14,6 @@ var templatesMap = map[string][]string{
 		"internal/views/base.html",
 		"internal/views/components/navbar.html",
 		"internal/views/pages/home.html",
-		"internal/views/components/time.html",
 	},
 	"pageNotFound": {
 		"internal/views/base.html",
