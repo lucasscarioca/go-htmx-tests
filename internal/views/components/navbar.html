@@ -1,10 +1,16 @@
 {{ define "navbar" }}
 <nav
-  class="flex w-full p-4 items-center justify-between bg-secondary dark:bg-secondary-dark shadow-md"
+  class="relative z-10 flex w-full p-4 items-center justify-between bg-secondary dark:bg-secondary-dark shadow-md"
 >
-  <span class="font-bold text-accent hover:text-accent-bold duration-500"
-    >Music Stash</span
+  <span
+    class="font-bold text-accent hover:text-accent-bold duration-500 text-center flex items-center justify-center leading-4 cursor-pointer"
   >
+    <i class="text-2xl ph-fill ph-guitar mr-1"></i>
+    <div>
+      <div>Music</div>
+      <div>Stash</div>
+    </div>
+  </span>
   <input
     class="rounded -ml-18 lg:ml-80 md:w-1/5 md:py-1 bg-primary dark:bg-primary-dark text-primary-dark dark:text-primary px-2 focus:outline-accent focus:outline-double"
     name="searchbar"

@@ -2,28 +2,51 @@ package controllers
 
 import (
 	"net/http"
-	"time"
 
 	"github.com/labstack/echo/v4"
 )
 
-type Todo struct {
-	Title  string
-	Status bool
+type User struct {
+	Name string
+}
+
+type Playlist struct {
+	Title       string
+	Description string
+	CoverURL    string
+	Categories  []string
+}
+
+type Tab struct {
+	Title       string
+	Author      string
+	Description string
+	Categories  []string
+	CoverURL    string
+	Tuning      string
+	Content     string
+	Public      bool
 }
 
 func Home(c echo.Context) error {
-	todos := map[string][]Todo{
-		"Todos": {
-			{Title: "brush teeth", Status: true},
-			{Title: "Study", Status: false},
-			{Title: "Dishes", Status: false},
+	ctx := map[string]any{
+		"User": User{
+			Name: "Lucas",
+		},
+		"PinnedPlaylists": []Playlist{
+			{"Album1", "Album1 description", "", []string{"Guitar", "Pop"}},
+			{"Album2", "Album2 description", "", []string{"Guitar", "Pop"}},
+			{"Album3", "Album3 description", "", []string{"Guitar", "Pop"}},
+			{"Album4", "Album4 description", "", []string{"Guitar", "Pop"}},
+		},
+		"StarredTabs": []Tab{
+			{"Tab1", "Lucas", "Tab1 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
+			{"Tab2", "Lucas", "Tab2 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
+			{"Tab3", "Lucas", "Tab3 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
+			{"Tab4", "Lucas", "Tab4 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
+			{"Tab5", "Lucas", "Tab5 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
+			{"Tab6", "Lucas", "Tab6 Description", []string{"Pop", "Guitar"}, "", "C", "test content", true},
 		},
 	}
-	return c.Render(http.StatusOK, "home", todos)
-}
-
-func Time(c echo.Context) error {
-	ctx := map[string]any{"ts": time.Now().Format(time.Kitchen)}
-	return c.Render(http.StatusOK, "time", ctx)
+	return c.Render(http.StatusOK, "home", ctx)
 }

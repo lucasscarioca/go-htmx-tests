@@ -22,8 +22,7 @@ func Mount(e *echo.Echo) {
 	pages.GET("404", pageNotFoundHandler)
 
 	// Htmx Fragments Routes
-	hx := e.Group("/hx", middlewares.CacheControl(0), middlewares.ValidateHxRequest)
-	hx.GET("/time", controllers.Time)
+	// hx := e.Group("/hx", middlewares.CacheControl(0), middlewares.ValidateHxRequest)
 }
 
 func customHTTPErrorHandler(err error, c echo.Context) {

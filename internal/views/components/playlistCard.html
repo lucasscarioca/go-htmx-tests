@@ -1,0 +1,47 @@
+{{ define "playlistCard" }}
+<div
+  class="max-w-sm group relative rounded-xl overflow-hidden shadow-black hover:shadow-accent-bold shadow-md cursor-pointer transition-shadow duration-300"
+>
+  {{ if .CoverURL }}
+  <img
+    class="w-full object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform duration-300"
+    src="{{ .CoverURL }}"
+    alt="Album cover"
+  />
+  {{ else }}
+  <img
+    class="w-full object-cover group-hover:rotate-3 group-hover:scale-125 transition-transform duration-300"
+    src="https://images.unsplash.com/photo-1605020420620-20c943cc4669?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+    alt="Generic cover"
+  />
+  {{ end }}
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"
+  ></div>
+  <div
+    class="absolute inset-0 translate-y-[65%] lg:translate-y-[70%] group-hover:translate-y-0 transition-all p-4 duration-300"
+  >
+    <div
+      class="font-bold text-accent group-hover:text-accent-bold text-xl mb-2"
+    >
+      {{ .Title }}
+    </div>
+    <p
+      class="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      {{ .Description }}
+    </p>
+    <div
+      class="flex opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      {{ range .Categories }}
+      <span
+        class="inline-block m-1 p-1 bg-accent-light rounded-full text-xs font-semibold text-primary-dark"
+      >
+        {{ . }}
+      </span>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end}}

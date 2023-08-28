@@ -14,6 +14,7 @@ var templatesMap = map[string][]string{
 		"internal/views/base.html",
 		"internal/views/components/navbar.html",
 		"internal/views/pages/home.html",
+		"internal/views/components/playlistCard.html",
 	},
 	"pageNotFound": {
 		"internal/views/base.html",
@@ -21,9 +22,6 @@ var templatesMap = map[string][]string{
 		"internal/views/pages/404.html",
 	},
 	// HTMX Fragments
-	"time": {
-		"internal/views/components/time.html",
-	},
 }
 
 type TemplateRegistry struct {
