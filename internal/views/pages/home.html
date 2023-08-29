@@ -24,9 +24,9 @@
     <h1 class="my-2 text-md text-accent-bold dark:text-accent font-bold">
       Starred Tabs
     </h1>
-    <!-- Starred Tabs -->
+    <!-- Pinned Tabs -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-      {{ range .StarredTabs }} {{ template "playlistCard" .}} {{ end }}
+      {{ range .PinnedTabs }} {{ template "playlistCard" .}} {{ end }}
     </div>
     <!-- Create Tab Floating Button -->
   </div>
